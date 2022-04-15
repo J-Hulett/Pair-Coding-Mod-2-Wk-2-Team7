@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Reservation;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,8 +29,9 @@ public class JdbcReservationDaoTests extends BaseDaoTests {
         assertEquals(5, reservationCreated);
     }
     @Test
-    public void returnsCorrectReservationForId(){
-
+    public void returns_upcoming_reservations_by_park_id(){
+        int actual = dao.listUpcomingReservationsByPark(1).size();
+        Assert.assertEquals(2, actual);
     }
 
 }
